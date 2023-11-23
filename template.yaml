@@ -32,7 +32,7 @@ Resources:
             Method: get
     Metadata:
       DockerTag: java17-gradle-v1
-      DockerContext: ./HelloWorldFunction
+      DockerContext: ./src
       Dockerfile: Dockerfile
 
   ApplicationResourceGroup:
