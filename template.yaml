@@ -15,7 +15,7 @@ Globals:
     TracingEnabled: true
 
 Resources:
-  HelloWorldFunction:
+  LambdaFunction:
     Type: AWS::Serverless::Function
     Properties:
       PackageType: Image
@@ -25,14 +25,14 @@ Resources:
         Variables:
           PARAM1: VALUE
       Events:
-        HelloWorld:
+        LambdaFunctionEvent:
           Type: Api
           Properties:
             Path: /hello
             Method: get
     Metadata:
       DockerTag: java17-gradle-v1
-      DockerContext: ./src
+      DockerContext: ./src/
       Dockerfile: Dockerfile
 
   ApplicationResourceGroup:
@@ -48,6 +48,6 @@ Resources:
       AutoConfigurationEnabled: true
 
 Outputs:
-  HelloWorldApi:
+  LambdaFunctionEventApi:
     Description: API Gateway endpoint URL for Prod stage for Hello World function
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"
