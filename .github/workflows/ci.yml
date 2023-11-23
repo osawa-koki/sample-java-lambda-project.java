@@ -5,6 +5,9 @@ on: [ push ]
 jobs:
   ci:
     runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: ./src/
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
@@ -12,7 +15,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'corretto'
-      - name: Test with Gradle
+      - name: Set up Gradle
         uses: gradle/gradle-build-action@v2
-        with:
-          arguments: test
+      - name: Test with Gradle
+        run: gradle test
