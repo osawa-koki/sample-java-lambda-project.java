@@ -2,6 +2,8 @@
 
 🍋🍋🍋 JavaでLambdaを作成するサンプルプロジェクトです！  
 
+![成果物](./docs/images/fruit.gif)  
+
 ## 開発環境の構築方法
 
 最初にAWS CLIをインストールします。  
@@ -66,6 +68,8 @@ sam local start-api
 ```shell
 aws cloudformation describe-stacks --stack-name <プロジェクト名> --query 'Stacks[].Outputs[?OutputKey==`LambdaFunctionEventApi`].OutputValue' --output text
 ```
+
+手動でデプロイする場合は、以下のコマンドを実行します。  
 
 ```shell
 sam build --use-container
