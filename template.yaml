@@ -18,6 +18,8 @@ Resources:
   LambdaFunction:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: !Sub "${AWS::StackName}-lambda-function"
+      Description: A sample Java Lambda function.
       PackageType: Image
       Architectures:
         - x86_64
